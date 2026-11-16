@@ -42,7 +42,12 @@ def suggest_word(word: str, filepath: str):
 
 path = "words_alpha.txt"
 
-word = "hell"
 
-prediction = suggest_word(word, path)
-print(prediction)
+st.title("Simple word correction")
+
+user_input = st.text_input("Type your word")
+prediction = suggest_word(user_input,path)
+with st.echo():
+    st.write(f"Suggested correction: {prediction}")
+
+

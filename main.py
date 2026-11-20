@@ -1,10 +1,5 @@
 import streamlit as st 
 
-def replace_cost(x, y):
-    if x == y:
-        return 0 
-    return 1
-
 def levenshtein_distance(word: str, target: str):
     n, m = len(word), len(target)
     distance = [[0] * (n+1) for _ in range(m+1)]
@@ -19,7 +14,7 @@ def levenshtein_distance(word: str, target: str):
         for j in range(1, n+1): 
             distance[i][j] = min(
                 distance[i][j-1] + 1, distance[i-1][j] + 1,
-                distance[i-1][j-1] + replace_cost(word[j-1], target[i-1])
+                distance[i-1][j-1] + int(not (word[j-1] == target[i-1]))
             )
 
     return distance[-1][-1]
@@ -46,8 +41,10 @@ path = "words_alpha.txt"
 st.title("Simple word correction")
 
 user_input = st.text_input("Type your word")
-prediction = suggest_word(user_input,path)
-with st.echo():
-    st.write(f"Suggested correction: {prediction}")
+if user_input != "":
+    prediction = suggest_word(user_input,path)
+else:
+    prediction = ""
+st.write(f"Suggested correction: {prediction}")
 
 

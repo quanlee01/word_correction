@@ -1,0 +1,6 @@
+2114425 (HEAD -> hotfix, origin/hotfix) fix: placeholder output for when user is not typing
+8833f80 (origin/develop, develop) Merge pull request #2 from quanlee01/feature/streamlit_interface
+9afccdb (origin/feature/streamlit_interface) feat: used streamlit to make a simple UI
+f053d15 Merge pull request #1 from quanlee01/feature/levenshtein_distance_raw
+8899a7f (origin/feature/levenshtein_distance_raw) feat: implemented raw levenshtein distance logic
+4a0a639 (origin/main, origin/HEAD, main) Initial commit
